@@ -105,7 +105,7 @@ set_wallpaper() {
 }
 
 notify_user() {
-  notify-send "Dotfiles Installed" "Open a terminal with MOD+Q\n– EF"
+  notify-send "Dotfiles Installed" "Open a terminal with MOD+Q\n"
 }
 
 # --- Argument Parsing ------------------------------------------------------
