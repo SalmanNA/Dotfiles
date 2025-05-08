@@ -50,30 +50,23 @@ return {
             end
             return dashboard.opts
         end
+local status_ok, alpha = pcall(require, "alpha")
+if not status_ok then return end
 
-        require("alpha").setup(applyColors({
-            [[███████╗    ██████╗ ]],
-            [[██╔════╝    ██╔═══╝ ]],
-            [[█████╗      ██████╗ ]],
-            [[██╔══╝      ██╔═══╝ ]],
-            [[███████╗    ██║     ]],
-            [[╚══════╝    ╚═╝     ]],
-            [[N  E  O  V  I  M    ]],
-        }, {
-                ["a"] = { fg = color9, ctermfg = 33},
-                ["b"] = { fg = color3, ctermfg = 33},
-                ["c"] = { fg = color4, ctermfg = 33},
-                ["d"] = { fg = color5, ctermfg = 33},
-                ["e"] = { fg = color6, ctermfg = 33},
-            }, {
-                [[bbbbbbba    cccccca ]],
-                [[bbaaaaaa    ccaaaaa ]],
-                [[bbbbba      cccccca ]],
-                [[bbaaaa      ccaaaaa ]],
-                [[bbbbbbba    cca     ]],
-                [[aaaaaaaa    aaa     ]],
-                [[d  d  d  e  e  e    ]],
-            }))
+-- load the dashboard theme
+local theme_ok, dashboard = pcall(require, "alpha.themes.dashboard")
+if not theme_ok then return end
+
+dashboard.section.header.val = {
+    "███████╗██╗   ██╗██╗   ██╗ ",
+    "██╔════╝╚██╗ ██╔╝██║   ██║ ",
+    "███████╗ ╚████╔╝ ██║   ██║ ",
+    "╚════██║  ╚██╔╝  ██║   ██║ ",
+    "███████║   ██║   ╚██████╔╝ ",
+    "╚══════╝   ╚═╝    ╚═════╝  ",
+    "    N  E  O  V  I  M       ",
+}
+alpha.setup(dashboard.config)
         dashboard.section.buttons.val = {
             dashboard.button( "e", "  > New file" , ":ene <BAR> startinsert <CR>"),
             dashboard.button( "f", "󰱼  > Find file", ":lua require('telescope.builtin').find_files({ find_command = { 'rg', '--files' } })<CR>"),
