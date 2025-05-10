@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.cmd("set number")
 require("vim-options")
-require("lazy").setup("plugins")
+require("lazy").setup({{import = "plugins"},{import = "plugins.lsp"}})
 vim.opt.termguicolors = true
 vim.opt.number         = true
 vim.opt.relativenumber = true

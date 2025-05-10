@@ -111,6 +111,7 @@ alias psize='LC_ALL=C.UTF-8 pacman -Qi \
   | LC_ALL=C.UTF-8 sort -h'
 alias rgf='rg --files --hidden | fzf'
 alias cd="z"
+alias vim="nvim"
 export PATH=/home/salman/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/salman/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
 
 fpath+=~/.zfunc; autoload -Uz compinit; compinit
