@@ -57,7 +57,6 @@ else
 fi
 
 echo "[DONE] All specified configs (including .zshrc) have been collected."
-
 git add .
 git commit -m "DotFiles Update"
 git push
