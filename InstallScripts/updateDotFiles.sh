@@ -56,16 +56,9 @@ else
   echo " [WARN] ${ZSHRC_SRC} not found, skipping"
 fi
 
-# NEW: Copy the entire ~/.oh-my-zsh directory
-OHMY_SRC="${HOME}/.oh-my-zsh"
-if [[ -d "${OHMY_SRC}" ]]; then
-  DEST="${HOME}/Dotfiles/.oh-my-zsh"
-  mkdir -p "${DEST}"
-  cp -a "${OHMY_SRC}/." "${DEST}/"  # copy all themes, plugins, etc. :contentReference[oaicite:3]{index=3}
-  echo " → Copied ${OHMY_SRC} → ${DEST}"
-else
-  echo " [WARN] ${OHMY_SRC} not found, skipping"
-fi
-
 echo "[DONE] All specified configs (including .zshrc) have been collected."
+
+git add .
+git commit -m "DotFiles Update"
+git push
 
